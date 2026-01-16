@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# 📦 Products Management - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de gestión de productos construido con React, TypeScript, Vite, Tailwind CSS y Shadcn.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ CRUD completo de productos (Crear, Leer, Actualizar, Eliminar)
+- 🔍 Búsqueda en tiempo real con debounce
+- 📄 Paginación client-side (10 productos por página)
+- 🎨 UI moderna con shadcn/ui y Tailwind CSS
+- 🔔 Notificaciones toast con Sonner
+- ⚡ Optimización con React Hook Form
+- 🎯 Ordenamiento por ID descendente
+- 📱 Diseño responsive
+- 🔄 Estados de carga y error manejados
 
-## React Compiler
+## 🛠️ Stack Tecnológico
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **Framework:** React 19 + TypeScript
+- **Build Tool:** Vite 7
+- **Estilos:** Tailwind CSS 4
+- **UI Components:** shadcn/ui + Radix UI
+- **Forms:** React Hook Form
+- **HTTP Client:** Axios
+- **Icons:** Lucide React
+- **Notifications:** Sonner
 
-## Expanding the ESLint configuration
+## 📋 Requisitos Previos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js >= 18.x
+- pnpm (recomendado) o npm
+- Backend API corriendo en `http://localhost:3001` cambialo por la url de tu backend.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Instalación
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clonar el repositorio y navegar a la carpeta**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Instalar dependencias**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Con pnpm (recomendado):
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
+
+Con npm:
+
+```bash
+npm install
+```
+
+## 🏃 Ejecución
+
+### Modo Desarrollo
+
+```bash
+pnpm run dev
+```
+
+La aplicación estará disponible en `http://localhost:5173`
+
+### Build para Producción
+
+```bash
+pnpm run build
+```
+
+Los archivos de producción se generarán en la carpeta `dist/`
+
+### Preview de Build
+
+```bash
+pnpm preview
+```
+
+### Lint
+
+```bash
+pnpm lint
+```
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── components/          # Componentes UI base (shadcn)
+│   └── ui/
+├── products/           # Feature de productos
+│   ├── actions/       # Lógica de negocio
+│   ├── api/           # Configuración de API
+│   ├── components/    # Componentes de productos
+│   ├── hooks/         # Custom hooks
+│   ├── interfaces/    # Tipos TypeScript
+│   └── mappers/       # Transformadores de datos
+├── shared/            # Componentes compartidos
+│   └── components/
+├── lib/               # Utilidades
+├── ProductApp.tsx     # Componente principal
+└── main.tsx          # Punto de entrada
+```
+
+## 🔌 Configuración de API
+
+El frontend se conecta a la API en `http://localhost:3001`. Para cambiar la URL base has una copia del archivo `.env.example`
